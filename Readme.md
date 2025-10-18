@@ -1,16 +1,11 @@
 # CC Fest 2025 Fall
 
-Welcome to the CC Fest 2025 Fall project repository. This repository contains p5.js sketches and related materials.
-
-## Getting Started
-1. Clone this repository
-2. Open sketches in a p5.js editor
-3. Run and experiment with the code
+Welcome to @jrandym CC Fest 2025 Fall project repository. This repository contains p5.js sketches and related materials for this event.
 
 ## Contents
-- Sketches
-- Documentation
-- Resources
+
+### Assignment #1
+A p5.js project that creates a 2D design using various shapes and colors.
 
 ## License
 This project is under MIT License.
