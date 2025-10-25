@@ -55,12 +55,38 @@ function draw() {
   
   // Reset shadow for other drawings
   drawingContext.shadowBlur = 0;
-  
-  // add ray of light from left side 
-  // which strikes the triangle's left side
-  // at an angle slightly less than perpendicular to the triangle
+
+  // add ray of light from left side which strikes the triangle's left side at an angle slightly less than perpendicular to the triangle
   strokeWeight(5)  
   line(0,450, 500, 400);
+
+  // add the dispersion of the light beam as a white triangle (dispersion triangle) beginning at the point of incidence on the triangle and expanding downward to the right side of the canvas. 
+  // dispersion triangle: 
+  //  - translucent white
+  //  - top vertex at incidence point
+  //  - top side at slight angle (2 degrees of incidence)
+  //  - expands downward-right at an angle of about 30 degrees from horizontal
+  // dispersion triangle: apex at incidence, slight 2° tilt, expands ~30° downward-right
+  noStroke();
+  fill(255, 255, 255, 150);
+
+  const apex = createVector(500, 400); // point of incidence
+  const axisAngle = radians(1); // approx 30° down-right
+  const tilt = radians(1); // slight incidence tilt
+  const dir = p5.Vector.fromAngle(axisAngle + tilt);
+  const length = 5000; // how far the dispersion extend
+  const baseCenter = p5.Vector.add(apex, p5.Vector.mult(dir, length));
+
+  const baseWidth = 800; // width of the dispersed beam at the far edge
+  const perp = p5.Vector.fromAngle(axisAngle + tilt + HALF_PI);
+  const leftBase = p5.Vector.add(baseCenter, p5.Vector.mult(perp, baseWidth * 0.5));
+  const rightBase = p5.Vector.add(baseCenter, p5.Vector.mult(perp, -baseWidth * 0.5));
+
+  beginShape();
+  vertex(apex.x, apex.y);
+  vertex(leftBase.x, leftBase.y);
+  vertex(rightBase.x, rightBase.y);
+  endShape(CLOSE);
 }
 function mousePressed(){
   console.log(mouseX, mouseY);
