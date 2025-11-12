@@ -1,3 +1,12 @@
+// Create variables rColor, gColor, bColor for color components
+
+let rColor;
+let gColor;
+let bColor;
+// Create and initialize variables for color complements
+let compRed;
+let compGreen;
+let compBlue;
 // Variables for the canvas
 let canvasWidth;
 let canvasHeight;
@@ -12,17 +21,28 @@ let r;
 // Velocity of the circle
 let vx;
 let vy;
+
 // Color of the circle
 let circleColor;
 
 // Setup function to create the canvas
 function setup() {
+// Initialize variables rColor, gColor, bColor for color components
+// Note this need to be done here because random() needs to be called after setup starts
+rColor = random(255);
+gColor = random(255);
+bColor = random(255);
+// Create and initialize variables for color complements
+compRed = 255 - rColor;
+compGreen = 255 - gColor;
+compBlue = 255 - bColor;
+
   // Create canvas of size 400x400
   canvasWidth = 400;
   canvasHeight = 400;
   createCanvas(canvasWidth, canvasHeight);
-  // Set background color
-  bgColor = color(222);
+  // Set background color using the complement colors
+  bgColor = color(compRed, compGreen, compBlue);
   background(bgColor);
   // Initialize position of the circle at the center of the canvas
   x = canvasWidth / 2;
@@ -32,8 +52,8 @@ function setup() {
   // Initialize velocity of the circle
   vx = random(-5, 5);
   vy = random(-5, 5);
-  // Set initial color of the circle
-  circleColor = color(random(255), random(255), random(255));
+  // Set initial color of the circle using random colors components
+  circleColor = color(rColor, gColor, bColor);
 }
 // Draw function to animate the circle
 function draw() {
@@ -60,14 +80,20 @@ function mousePressed() {
   if (d < r) {
     // r = random(10, 50);
     r += 5;
-    // Change the color of the circle
-    circleColor = color(random(255), random(255), random(255));
+    // Change the color of the circle by generating new random colors components
+    rColor = random(255);
+    gColor = random(255);
+    bColor = random(255);
+    circleColor = color(rColor, gColor, bColor);
     // Reset radius if it exceeds 50
     if (r > 50) {
       r = 25;
     }
-    // Change the background color
-    bgColor = color(random(255), random(255), random(255));
+    // Change the background color using new random colors components
+    compRed = 255 - rColor;
+    compGreen = 255 - gColor;
+    compBlue = 255 - bColor;
+    bgColor = color(compRed, compGreen, compBlue);
   }
 }
 
