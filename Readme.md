@@ -7,6 +7,8 @@ Welcome to @jrandym CC Fest 2025 Fall project repository. This repository contai
 ### Assignment #1
 A p5.js project that creates a 2D design using various shapes and colors.
 
+### Assignment #2
+
 ## License
 This project is under MIT License.
 
