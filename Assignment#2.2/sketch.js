@@ -96,4 +96,9 @@ function mousePressed() {
     bgColor = color(compRed, compGreen, compBlue);
   }
 }
-
+/*
+ * Reflection: 
+ * 1. I chose to use x & y for the position of my circle/ball because those are typical variable names for coordinates in a 2D graph. Similarly, I used vx and vy for the ball's velocity.
+ * 2. I chose to create a clicker and bouncer project so I could experiment with simple animation and physics
+ * 3. I added color changes when the ball is clicked on by the mouse because I wanted to add a bit a color and contrast to my project.  It also allow me to explore a bit a color theory using color complements and it was fun!
+*/
