@@ -1,5 +1,5 @@
 // Session 3 — Grid + Random
-// Goal: Use for loops and random() to make a colorful grid
+// BASIC TRACK: Use for loops and random() for color, size, or shape. Learn to see how repetition and chance interact to create visual rhythm.
 
 let rows;
 let columns;
