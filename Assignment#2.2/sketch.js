@@ -1,5 +1,8 @@
-// Create variables rColor, gColor, bColor for color components
+/*
+ * Global variables
+ */
 
+// Create variables rColor, gColor, bColor for color components
 let rColor;
 let gColor;
 let bColor;
@@ -11,8 +14,6 @@ let compBlue;
 let canvasWidth;
 let canvasHeight;
 let bgColor;
-
-// Variables for circle
 // Position of the circle
 let x;
 let y;
@@ -21,21 +22,32 @@ let r;
 // Velocity of the circle
 let vx;
 let vy;
-
 // Color of the circle
 let circleColor;
 
+/*
+ * User-defined functions
+ */
+
+function preload() {
+
+}
+
+/*
+ * Built-in functions
+ */
+
 // Setup function to create the canvas
 function setup() {
-// Initialize variables rColor, gColor, bColor for color components
-// Note this need to be done here because random() needs to be called after setup starts
-rColor = random(255);
-gColor = random(255);
-bColor = random(255);
-// Create and initialize variables for color complements
-compRed = 255 - rColor;
-compGreen = 255 - gColor;
-compBlue = 255 - bColor;
+  // Initialize variables rColor, gColor, bColor for color components
+  // Note this need to be done here because random() needs to be called after setup starts
+  rColor = random(255);
+  gColor = random(255);
+  bColor = random(255);
+  // Create and initialize variables for color complements
+  compRed = 255 - rColor;
+  compGreen = 255 - gColor;
+  compBlue = 255 - bColor;
 
   // Create canvas of size 400x400
   canvasWidth = 400;
