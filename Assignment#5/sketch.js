@@ -3,17 +3,20 @@
  */
 class Dot {
   constructor(x = 200, y = 200, dx = random(-2, 2), dy = random(-2, 2), size = random(10, 30), col = color(random(255), random(255), random(255)), shape = 'circle') {
+    // Initialize properties of the Dot using Object.assign for brevity
     Object.assign(this, {x, y, dx, dy, size, col, shape});
+    // Define possible shapes and their drawing methods
     this.shapes = {
       circle: () => circle(this.x, this.y, this.size),
       square: () => square(this.x, this.y, this.size),
       triangle: () => triangle(this.x, this.y - this.size/2, this.x - this.size/2, this.y + this.size/2, this.x + this.size/2, this.y + this.size/2)
     };
   }
-  
+  // Method to display the dot 
   display(fillColor = this.col, strokeEnabled = false, shape = this.shape) {
     fill(fillColor);
     strokeEnabled ? stroke(0) : noStroke();
+    // Call the appropriate shape drawing method using optional chaining
     this.shapes[shape]?.();
   }
   // Method to move the dot
