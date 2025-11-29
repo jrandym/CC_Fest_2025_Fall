@@ -2,24 +2,38 @@
  * Class declarations
  */
 class Dot {
-  constructor(x, y) {
+  constructor(x = 200, y = 200, dx = random(-2, 2), dy = random(-2, 2), size = random(10, 30), col = color(random(255), random(255), random(255))) {
     this.x = x;
     this.y = y;
-    this.dx = random(-2, 2);
-    this.dy = random(-2, 2);
-    this.size = random(10, 30);
-    this.col = color(random(255), random(255), random(255));
+    this.dx = dx;
+    this.dy = dy;
+    this.size = size;
+    this.col = col;
   }
-
-  display() {
-    fill(this.col);
-    noStroke();
-    circle(this.x, this.y, this.size);
+  // Method to display the dot
+  display(fillColor = this.col, strokeEnabled = false, shape = 'circle') {
+    fill(fillColor);
+    if (strokeEnabled) {
+      stroke(0);
+    } else {
+      noStroke();
+    }
+    // Draw the shape based on the specified type
+    if (shape === 'circle') {
+      circle(this.x, this.y, this.size);
+    } else if (shape === 'square') {
+      square(this.x, this.y, this.size);
+    } else if (shape === 'triangle') {
+      triangle(this.x, this.y - this.size/2, this.x - this.size/2, this.y + this.size/2, this.x + this.size/2, this.y + this.size/2);
+    }
   }
-
-  move() {
-    this.x += this.dx;
-    this.y += this.dy;
+  // Method to move the dot
+  move(dx = this.dx, dy = this.dy) {
+    this.x += dx;
+    this.y += dy;
+    // if caller provided explicit dx/dy, update the dot's velocity
+    this.dx = dx;
+    this.dy = dy;
   }
 }
 
