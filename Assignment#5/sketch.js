@@ -73,8 +73,8 @@ function draw() {
   background(220);
 
   for (let d of dots) {
-    d.move();
     d.display();
+    d.move();
   }
 }
 // Function to handle mousePressed event
